@@ -1,0 +1,21 @@
+name: WalkTheWalk
+main: me.ellbristow.WalkTheWalk.WalkTheWalk
+version: 1.0
+author: ellbristow
+description: >
+             Gain experience for walking in your 'Walking Boots'
+commands:
+  wtw:
+    description: Admin commands for setting configuration
+    permission: walkthewalk.admin
+    usage: "Please see /wtw for WalkTheWalk command help"
+permissions:
+  walkthewalk.*:
+    description: Access to all WalkTheWalk permissions
+    children:
+      walkthewalk.admin: true
+      walkthewalk.use: true
+  walkthewalk.admin:
+    description: Access to admin commands in /wtw
+  walkthewalk.use:
+    descriptions: Can gain XP from Walking Boots

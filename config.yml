@@ -1,0 +1,31 @@
+# 
+# WalkTheWalk
+# by ellbristow
+# 
+# Configuration File
+# 
+# walking_boots: Sets what kind of boots provide XP
+# 0 = ALL
+# 1 = Leather
+# 2 = Iron
+# 3 = Gold (Default)
+# 4 = Diamond
+# 5 = Chain
+# 
+# xp_boost: How much XP to give the player per block they pass
+#   XP given is equal to xp_boost / boost_blocks, so:
+#   1 = 1 XP every time you pass the number of specified boost_blocks
+#   MUST be a whole number!
+# Default: 1
+# 
+# boost_blocks: How many blocks the player must pass to receive the boost
+# Default: 10
+# MUST be a whole number!
+# 
+# announce_changes: Should everyone be told about changes in settings?
+# 
+
+walking_boots: 3
+xp_boost: 1
+boost_blocks: 10
+announce_changes: true
