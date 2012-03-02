@@ -1,8 +1,6 @@
 package me.ellbristow.WalkTheWalk;
 
 import java.util.HashMap;
-import java.util.logging.Logger;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -20,22 +18,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class WalkTheWalk extends JavaPlugin implements Listener {
 	
 	public static WalkTheWalk plugin;
-	public final Logger logger = Logger.getLogger("Minecraft");
 	protected FileConfiguration config;
-	public HashMap<String, Double> xpRounding = new HashMap<String, Double>();
+	public HashMap<String, Double> xpRounding = new HashMap<>();
 	
 	@Override
 	public void onDisable() {
-		PluginDescriptionFile pdfFile = getDescription();
-		logger.info( "[" + pdfFile.getName() + "] is now disabled.");
 	}
 
 	@Override
 	public void onEnable() {
-		PluginDescriptionFile pdfFile = getDescription();
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(this, this);
-		logger.info("[" + pdfFile.getName() + "] version " + pdfFile.getVersion() + " is now enabled." );
 		config = getConfig();
 		int walkingBoots = config.getInt("walking_boots", 3);
 		config.set("walking_booots", walkingBoots);
@@ -48,6 +41,7 @@ public class WalkTheWalk extends JavaPlugin implements Listener {
 		saveConfig();
 	}
 	
+        @Override
 	public boolean onCommand (CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		if (commandLabel.equalsIgnoreCase("wtw")) {
 			if (args.length == 0) {
@@ -128,7 +122,7 @@ public class WalkTheWalk extends JavaPlugin implements Listener {
 				else if (boots == 5) {
 					newBoots = "Chain";
 				}
-				if (newBoots == "") {
+				if ("".equals(newBoots)) {
 					sender.sendMessage(ChatColor.RED + "Boot type can only be a number from 0 to 5!");
 					return false;
 				}
@@ -139,7 +133,7 @@ public class WalkTheWalk extends JavaPlugin implements Listener {
 				if (announce) {
 					Player[] players = getServer().getOnlinePlayers();
 					for (Player player : players) {
-						if (player.getName() != sender.getName()) {
+						if (!player.getName().equals(sender.getName())) {
 							player.sendMessage(ChatColor.GOLD + newBoots + " boots are now Walking Boots!");
 						}
 					}
@@ -166,7 +160,7 @@ public class WalkTheWalk extends JavaPlugin implements Listener {
 				if (announce) {
 					Player[] players = getServer().getOnlinePlayers();
 					for (Player player : players) {
-						if (player.getName() != sender.getName()) {
+						if (!player.getName().equals(sender.getName())) {
 							player.sendMessage(ChatColor.GOLD + "Players must now travel " + blocks + " blocks in Walking Boots to get XP!");
 						}
 					}
@@ -193,7 +187,7 @@ public class WalkTheWalk extends JavaPlugin implements Listener {
 				if (announce) {
 					Player[] players = getServer().getOnlinePlayers();
 					for (Player player : players) {
-						if (player.getName() != sender.getName()) {
+						if (!player.getName().equals(sender.getName())) {
 							player.sendMessage(ChatColor.GOLD + "Walking Boot XP boost now set to " + xp + "!");
 						}
 					}
@@ -222,7 +216,7 @@ public class WalkTheWalk extends JavaPlugin implements Listener {
 				}
 				Player[] players = getServer().getOnlinePlayers();
 				for (Player player : players) {
-					if (player.getName() != sender.getName()) {
+					if (!player.getName().equals(sender.getName())) {
 						player.sendMessage(message);
 					}
 				}
