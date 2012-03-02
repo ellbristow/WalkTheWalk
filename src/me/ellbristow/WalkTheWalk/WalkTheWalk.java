@@ -241,7 +241,10 @@ public class WalkTheWalk extends JavaPlugin implements Listener {
 			// Player moved to a new block, and has permission
 			boolean rightBoots = false;
 			if (walkingBoots != 0) {
-				int invBoots = player.getInventory().getBoots().getTypeId();
+                            int invBoots = 0;
+                                if (player.getInventory().getBoots()!=null) {
+                                    invBoots = player.getInventory().getBoots().getTypeId();
+                                }
 				if (invBoots == 301 && walkingBoots == 1) {
 					// Leather Boots
 					rightBoots = true;
