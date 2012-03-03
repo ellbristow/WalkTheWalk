@@ -19,7 +19,7 @@ public class WalkTheWalk extends JavaPlugin implements Listener {
 	
 	public static WalkTheWalk plugin;
 	protected FileConfiguration config;
-	public HashMap<String, Double> xpRounding = new HashMap<>();
+	public HashMap<String, Double> xpRounding = new HashMap<String, Double>();
 	
 	@Override
 	public void onDisable() {
