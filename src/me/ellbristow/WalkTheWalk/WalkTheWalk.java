@@ -237,7 +237,6 @@ public class WalkTheWalk extends JavaPlugin implements Listener {
 		int fromZ = (int)fromLoc.getZ();
 		int toX = (int)toLoc.getX();
 		int toZ = (int)toLoc.getZ();
-                // TODO: Add vehicle check
 		if ( (fromX != toX || fromZ != toZ) && player.hasPermission("walkthewalk.use") && !player.isInsideVehicle()) {
 			// Player moved to a new block, and has permission
 			boolean rightBoots = false;
